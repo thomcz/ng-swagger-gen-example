@@ -1,0 +1,1 @@
+# ng-swagger-gen-example
