@@ -1,9 +1,7 @@
 # ng-swagger-gen-example
 # Motivation
-Im einem aktuellen Projekt verwenden wir ng-swagger-gen und ng-openapi-gen um interfaces und web service clients aus unserer Swagger 2.0 oder OpenApi 3 Spezifikation zu generieren.
-Im Folgenden möchte ich das am Beispiel von ng-openapi-gen zeigen. Dazu gehört:
-- 
-- 
+
+Im einem aktuellen Projekt verwenden wir ng-swagger-gen und ng-openapi-gen um interfaces und web service clients aus unserer Swagger 2.0 oder OpenApi 3 Spezifikation zu generieren. Im Folgenden möchte ich das am Beispiel von ng-openapi-gen zeigen. Dazu gehört:...
 
 Zu beginn haben wir unser Backend mithilfe des HttpClient aufgerufen
 
