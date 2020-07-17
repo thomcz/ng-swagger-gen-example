@@ -18,6 +18,8 @@ import { Greeting } from 'src/generated-backend/models/greeting';
 
   hello:Observable<Greeting>
   constructor(private greetingService: HelloWorldRestControllerService) { 
-    this.hello = this.greetingService.hello();
+    this.hello = this.greetingService.hello({
+        name:'Thomas'
+    });
   }
 }

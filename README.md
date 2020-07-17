@@ -17,7 +17,7 @@ getSomeData() {
 ...
 ```
 
-Dies hat aber zu Problemene geführt, wenn sich das BE geändert hat oder es falsch aufgerufen wurde. Wir wollten an dieser Stelle mehr Typsicherheit und compile Fehler, wenn es zu Änderungen kommt.
+Dies hat aber immer wieder zu Laufzeitfehlern geführt, wenn sich das BE geändert hat oder es falsch aufgerufen wurde. Wir wollten an dieser Stelle mehr Typsicherheit und compile Fehler, wenn es zu Änderungen kommt.
 
 # Die Idee
 Mithilfe von ng-swagger-gen und ng-openapi-gen können wir aus unserer Swagger Spezifikation Schnittstellen für unser Frontend generieren und erhalten kompilierfehler sobald sich etwas am BE ändert. 
@@ -100,7 +100,36 @@ constructor(private greetingService: HelloWorldRestControllerService) {
 ```
 was direkt auffällt, ist, dass wir einen konkreten Typ für das Observable angeben können.
 
-Wenn sich jetzt unser BE ändert
+# Änderungen
+Wird das BE geändert, z.b. indem ein Parameter zum aufruf hinzu kommt:
+```
+
+```
+bekommen wir in beiden fällen eien BadRequest:
+```
+{
+    status":400,
+    "error":"Bad Request","
+    trace":"...",
+    "message":"Required String parameter 'name' is not present","path":"/api/hello"
+}
+```
+Lassen wir aber den ng-openapi-gen Task laufen. Bekommen wir einen kompilier Fehler: 
+TODO Bild
+Also fügen wir den Parameter hinzu:
+```
+this.hello = this.greetingService.hello({
+    name: 'Thomas'
+});
+```
+IntelliJ und VSCode bieten hier sogar eine Autocompletion für die fehlenden Parameter an:
+TODO Bild
+
+# Abschließende Worte
+Mit ng-openapi-gen lassen sich  Interfaces und web service clients aus der OPenApi Spezifikation generieren. 
+Das sind nur die Grundlagen und können weiter ausgebaut und auch angepasst werden.
+In unserem Projekt haben wir den Input der Spezifikation abhängig davon gemacht, auf welcher Umgebung der Build läuft. Lokal wurde sie aus dem laufenden BE genommen. Auf dem BuildServer wurde sie aus einem GitRepo gedownloaded. Außerdem wurde der ng-openapi-gen Task in den Build Task aufgenommen. So führen Änderungen am BE schon während dem Build zu kompilier und nicht erst zu Laufzeit Fehlern.
 
 # Part 2 
+SwaggernIntTest
 Integration in Build Prozess
