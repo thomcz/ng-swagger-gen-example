@@ -2,6 +2,7 @@
 
 # compiled output
 /dist
+/generated-backend
 /tmp
 /out-tsc
 # Only exists if Bazel was run
