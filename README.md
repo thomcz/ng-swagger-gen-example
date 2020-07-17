@@ -122,6 +122,10 @@ this.hello = this.greetingService.hello({
 ```
 IntelliJ und VSCode bieten hier sogar eine Autocompletion für die fehlenden Parameter an:
 TODO Bild
+Jetzt stimmt unser FE wieder:
+```
+{ "content": "Hello Thomas!" }
+```
 
 # Abschließende Worte
 Mit ng-openapi-gen lassen sich  Interfaces und web service clients aus der OPenApi Spezifikation generieren. 
@@ -129,9 +133,5 @@ Das sind nur die Grundlagen und können weiter ausgebaut und auch angepasst werd
 In unserem Projekt haben wir den Input der Spezifikation abhängig davon gemacht, auf welcher Umgebung der Build läuft. Lokal wurde sie aus dem laufenden BE genommen. Auf dem BuildServer wurde sie aus einem GitRepo gedownloaded. Außerdem wurde der ng-openapi-gen Task in den Build Task aufgenommen. So führen Änderungen am BE schon während dem Build zu kompilier und nicht erst zu Laufzeit Fehlern.
 
 # Part 2 
-<<<<<<< HEAD
 SwaggernIntTest
 Integration in Build Prozess
-=======
-Integration in Build Prozess
->>>>>>> d2be38a9034032c18c6d5aa2f47cd322c7cce0b5
