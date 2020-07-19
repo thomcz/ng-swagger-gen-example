@@ -109,8 +109,8 @@ Wenn wir jetzt unser Frontend starten und aufrufen, erhalten wir in beiden Fäll
 ```
 {
     status":400,
-    "error":"Bad Request","
-    trace":"...",
+    "error":"Bad Request",
+    "trace":"...",
     "message":"Required String parameter 'name' is not present","path":"/api/hello"
 }
 ```
