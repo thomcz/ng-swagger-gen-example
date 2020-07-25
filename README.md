@@ -109,12 +109,13 @@ Wenn wir jetzt unser Frontend starten und aufrufen, erhalten wir in beiden Fäll
 ```
 {
     status":400,
-    "error":"Bad Request","
-    trace":"...",
+    "error":"Bad Request",
+    "trace":"...",
     "message":"Required String parameter 'name' is not present","path":"/api/hello"
 }
 ```
 Lassen wir aber vor dem Starten des Frontends den ```ng-openapi-gen```-Task laufen, bekommen wir einen Kompilierfehler: 
+
 ![kompilierfehler](doc/compile_error.png)
 
 Also fügen wir den Parameter hinzu:
@@ -124,6 +125,7 @@ this.hello = this.greetingService.hello({
 });
 ```
 IntelliJ und VSCode bieten an dieser Stelle sogar eine Auto-Vervollständigung für die fehlenden Parameter an:
+
 ![autocompletion](doc/parameter_autocompletion.png)
 
 Wenn wir jetzt das Frontend starten erhalten wir eine korrekte Ausgabe:
