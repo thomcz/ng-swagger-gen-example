@@ -9,12 +9,12 @@ import { Greeting } from 'src/generated-backend/models/greeting';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-  export class AppComponent {
-    
+export class AppComponent {
+
   hello: Observable<Greeting>
-  constructor(private greetingService: HelloWorldRestControllerService) { 
+  constructor(private greetingService: HelloWorldRestControllerService) {
     this.hello = this.greetingService.hello({
-        name:'Thomas'
+      name: 'Thomas'
     });
   }
 }

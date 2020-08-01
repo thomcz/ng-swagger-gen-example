@@ -74,7 +74,7 @@ Jetzt muss der Pfad für die Spezifikation angeben werden. Dazu muss im Hauptver
     "ignoreUnusedModels": false
   }
 ```
-Wenn wir jetzt unser Backend laufen lassen und den ```ng-openapi-gen.json``` Task laufen lassen wird in den Ordner ```src/generated-backend``` unsere Backend-Schnittstelle generiert. Um die generierte Schnittstelle verwenden zu können muss in der ```app.module.ts``` das ```ApiModul``` eingebunden werden:
+Wenn wir jetzt unser Backend und den ```ng-openapi-gen```  Task starten wird in den Ordner ```src/generated-backend``` unsere Backend-Schnittstelle generiert. Um die generierte Schnittstelle verwenden zu können muss in der ```app.module.ts``` das ```ApiModul``` eingebunden werden:
 ```
 
 @NgModule({
@@ -108,7 +108,7 @@ GetMapping("/api/hello", produces = [MediaType.APPLICATION_JSON_VALUE])
 Wenn wir jetzt unser Frontend starten und aufrufen, erhalten wir in beiden Fällen einen BadRequest:
 ```
 {
-    status":400,
+    "status":400,
     "error":"Bad Request",
     "trace":"...",
     "message":"Required String parameter 'name' is not present","path":"/api/hello"
@@ -116,7 +116,7 @@ Wenn wir jetzt unser Frontend starten und aufrufen, erhalten wir in beiden Fäll
 ```
 Lassen wir aber vor dem Starten des Frontends den ```ng-openapi-gen```-Task laufen, bekommen wir einen Kompilierfehler: 
 
-![kompilierfehler](doc/compile_error.png)
+![kompilierfehler](compile_error.png)
 
 Also fügen wir den Parameter hinzu:
 ```
@@ -126,7 +126,7 @@ this.hello = this.greetingService.hello({
 ```
 IntelliJ und VSCode bieten an dieser Stelle sogar eine Auto-Vervollständigung für die fehlenden Parameter an:
 
-![autocompletion](doc/parameter_autocompletion.png)
+![autocompletion](parameter_autocompletion.png)
 
 Wenn wir jetzt das Frontend starten erhalten wir eine korrekte Ausgabe:
 ```
