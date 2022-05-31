@@ -46,11 +46,7 @@ tasks.withType<KotlinCompile> {
     }
 }
 openApiGenerate {
-    generatorName.set("typescript-fetch")
-    inputSpec.set("$rootDir/specs/api-docs.json".toString())
-    outputDir.set("$buildDir/generated".toString())
-    apiPackage.set("org.openapi.example.api")
-    invokerPackage.set("org.openapi.example.invoker")
-    modelPackage.set("org.openapi.example.model")
-    configOptions.set(mapOf("dateLibrary" to "java8"))
+    generatorName.set("typescript")
+    inputSpec.set("$rootDir/specs/api-docs.json")
+    outputDir.set("$buildDir/generated")
 }
